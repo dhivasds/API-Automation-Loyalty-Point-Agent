@@ -14,11 +14,11 @@ import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 
 public class DetailProfile {
 
-    String base_url = "http://44.201.153.46:8081/api-dev/v1/";
+    String base_url = "http://44.201.153.46:8081/api-dev/v1/users/";
     String token;
 
     @Step("I set an endpoint for user")
-    public String setAnEndpointForUser() { return base_url + "users"; }
+    public String setAnEndpointForUser() { return base_url + "profile"; }
 
     @Step("I request {string} GET user")
     public void setRequestGETUser(String input) throws IOException {
