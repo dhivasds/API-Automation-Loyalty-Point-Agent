@@ -50,7 +50,7 @@ public class DeleteQuotaProduct {
     @Step("validate the data detail {string} after delete quota product")
     public void setValidateTheDataDetailAfterDeleteQuotaProduct(String message) {
         if (message.equals("DeleteProvider")){
-            restAssuredThat(response -> response.body("message", Matchers.equalTo("Delete topup product success")));
+            restAssuredThat(response -> response.body("message", Matchers.equalTo("Delete quota product success")));
             restAssuredThat(response -> response.body("code", Matchers.equalTo("201")));
         }else {
             restAssuredThat(response -> response.body("message", Matchers.equalTo("Full authentication is required to access this resource")));
