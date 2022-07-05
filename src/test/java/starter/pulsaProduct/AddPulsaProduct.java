@@ -17,7 +17,7 @@ import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 
 public class AddPulsaProduct {
 
-    String base_url = "http://44.201.153.46:8081/api-dev/v1/products/";
+    String base_url = "http://44.201.153.46:8081/api-dev/v1/transactions/";
     String token;
 
     @Step("I set an endpoint for add pulsa product")
