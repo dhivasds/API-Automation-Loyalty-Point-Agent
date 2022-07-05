@@ -10,6 +10,6 @@ Feature: Detail Daily Login
     And validate the data detail "<message>" after get detail daily login
     Examples:
       | input | sCode | message |
-      | validToken    | 201 | DetailDailyLogin   |
+      | validToken    | 200 | DetailDailyLogin   |
       | invalidToken  | 401 | Unauthorized       |
 

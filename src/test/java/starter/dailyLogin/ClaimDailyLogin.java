@@ -44,7 +44,7 @@ public class ClaimDailyLogin {
     public void setValidateTheDataDetailAfterClaimDailyLogin(String message) {
         if (message.equals("ClaimDailyLogin")){
             restAssuredThat(response -> response.body("message", Matchers.equalTo("Claim daily login success")));
-            restAssuredThat(response -> response.body("code", Matchers.equalTo("200")));
+            restAssuredThat(response -> response.body("code", Matchers.equalTo("201")));
         }else {
             restAssuredThat(response -> response.body("message", Matchers.equalTo("Full authentication is required to access this resource")));
             restAssuredThat(response -> response.body("'status'", Matchers.equalTo(401)));
