@@ -14,7 +14,7 @@ import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 
 public class DetailProfile {
 
-    String base_url = "http://44.201.153.46:8081/api-dev/v1/users/";
+    String base_url = "http://44.201.153.46:8081/api/v1/users/";
     String token;
 
     @Step("I set an endpoint for user")

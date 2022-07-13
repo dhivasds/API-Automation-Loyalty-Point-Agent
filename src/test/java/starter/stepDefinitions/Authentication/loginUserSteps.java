@@ -4,7 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
-import starter.loginUser.LoginUser;
+import starter.authentication.LoginUser;
 
 import java.io.IOException;
 

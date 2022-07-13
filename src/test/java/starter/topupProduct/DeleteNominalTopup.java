@@ -15,7 +15,7 @@ import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 
 public class DeleteNominalTopup {
 
-    String base_url = "http://44.201.153.46:8081/api-dev/v1/products/topup/";
+    String base_url = "http://44.201.153.46:8081/api/v1/products/topup/";
     String token, IdTopupProduct;
 
     @Step("I set an endpoint for delete nominal top up")

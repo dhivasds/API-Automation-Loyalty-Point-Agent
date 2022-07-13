@@ -10,6 +10,6 @@ Feature: Detail Transaction History
     And validate the data detail "<message>" after get detail transaction history
     Examples:
       | input | sCode | message |
-      | validToken    | 201 | DetailTransaction  |
+      | validToken    | 200 | DetailTransaction  |
       | invalidToken  | 401 | Unauthorized       |
 

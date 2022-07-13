@@ -19,7 +19,7 @@ import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 
 public class UpdateQuotaProduct {
 
-    String base_url = "http://44.201.153.46:8081/api-dev/v1/products/quota/";
+    String base_url = "http://44.201.153.46:8081/api/v1/products/quota/";
     String token, IdQuotaProduct;
 
     @Step("I set an endpoint for update quota product")
@@ -144,7 +144,7 @@ public class UpdateQuotaProduct {
             restAssuredThat(response -> response.body("message", Matchers.equalTo("Update quota product success")));
             restAssuredThat(response -> response.body("code", Matchers.equalTo("201")));
         }else if (message.equals("ProviderNotFound")){
-            restAssuredThat(response -> response.body("message", Matchers.equalTo("provider not found")));
+            restAssuredThat(response -> response.body("message", Matchers.equalTo("Provider not found")));
             restAssuredThat(response -> response.body("code", Matchers.equalTo("400")));
         }else if (message.equals("StockAtLeast")){
             restAssuredThat(response -> response.body("errors[0]", Matchers.equalTo( "stock is at least 1")));

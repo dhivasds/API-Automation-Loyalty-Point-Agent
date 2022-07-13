@@ -17,7 +17,7 @@ import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 
 public class AddNominalTopup {
 
-    String base_url = "http://44.201.153.46:8081/api-dev/v1/products/";
+    String base_url = "http://44.201.153.46:8081/api/v1/products/";
     String token;
 
     @Step("I set an endpoint for add Top up")
@@ -27,8 +27,9 @@ public class AddNominalTopup {
     public void setRequestPOSTAddTopUp(String input) throws IOException {
         if (input.equals("validToken")){
             JSONObject requestBody = new JSONObject();
-            requestBody.put("amount", 50000);
-            requestBody.put("gross_amount", 51000);
+            requestBody.put("name", "TOPUP 350K");
+            requestBody.put("amount", 350000);
+            requestBody.put("gross_amount", 351000);
 
 //           * Catch Token
             this.token = FileUtils.readFileToString(new File(System.getProperty("user.dir") +
@@ -41,8 +42,9 @@ public class AddNominalTopup {
 
         }else if (input.equals("invalidToken")){
             JSONObject requestBody = new JSONObject();
-            requestBody.put("amount", 50000);
-            requestBody.put("gross_amount", 51000);
+            requestBody.put("name", "TOPUP 350K");
+            requestBody.put("amount", 350000);
+            requestBody.put("gross_amount", 351000);
 
             SerenityRest.given().header("Content-Type", "application/json")
                     .header("Authorization", "Bearer " + "invalidToken")
@@ -50,6 +52,7 @@ public class AddNominalTopup {
 
         }else if (input.equals("inputNullAmount")){
             JSONObject requestBody = new JSONObject();
+            requestBody.put("name", "TOPUP 350K");
             requestBody.put("amount", null);
             requestBody.put("gross_amount", 51000);
 
@@ -64,6 +67,7 @@ public class AddNominalTopup {
 
         }else {
             JSONObject requestBody = new JSONObject();
+            requestBody.put("name", "TOPUP 350K");
             requestBody.put("amount", 50000);
             requestBody.put("gross_amount", null);
 

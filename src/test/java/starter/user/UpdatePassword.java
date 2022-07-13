@@ -14,7 +14,7 @@ import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 
 public class UpdatePassword {
 
-    String base_url = "http://44.201.153.46:8081/api-dev/v1/users/";
+    String base_url = "http://44.201.153.46:8081/api/v1/users/";
     String token,password;
 
     @Step("I set an endpoint for update password")
@@ -86,7 +86,6 @@ public class UpdatePassword {
             restAssuredThat(response -> response.body("message", Matchers.equalTo("Full authentication is required to access this resource")));
             restAssuredThat(response -> response.body("'status'", Matchers.equalTo(401)));
         }else if (message.equals("PasswordInvalid")){
-            //! BUG VALIDATE TEKS BLM SESUAI
             restAssuredThat(response -> response.body("errors[0]", Matchers.equalTo("The length of password must be at least 8 characters.")));
             restAssuredThat(response -> response.body("code", Matchers.equalTo("400")));
         }else {

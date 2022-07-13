@@ -14,7 +14,7 @@ import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 
 public class DeleteQuotaProduct {
 
-    String base_url = "http://44.201.153.46:8081/api-dev/v1/products/quota/";
+    String base_url = "http://44.201.153.46:8081/api/v1/products/quota/";
     String token, IdQuotaProduct;
 
     @Step("I set an endpoint for delete quota product")

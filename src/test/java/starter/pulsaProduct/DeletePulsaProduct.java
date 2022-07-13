@@ -14,7 +14,7 @@ import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 
 public class DeletePulsaProduct {
 
-    String base_url = "http://44.201.153.46:8081/api-dev/v1/products/pulsa/";
+    String base_url = "http://44.201.153.46:8081/api/v1/products/pulsa/";
     String token, IdPulsaProduct;
 
     @Step("I set an endpoint for delete pulsa product")

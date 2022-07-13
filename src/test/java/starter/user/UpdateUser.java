@@ -4,6 +4,7 @@ package starter.user;
 import Utils.General;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import org.apache.commons.io.FileUtils;
 import org.hamcrest.Matchers;
 import org.json.simple.JSONObject;
@@ -16,9 +17,11 @@ import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 
 public class UpdateUser {
 
-    String base_url = "http://44.201.153.46:8081/api-dev/v1/";
-    String token, email, phoneNumber;
+    String base_url = "http://44.201.153.46:8081/api/v1/";
+    String token, email, phoneNumber, randomPhoneNumber;
 
+    @Steps
+    General general;
 
     @Step("I set an endpoint for user update")
     public String setAnEndpointForUserUpdate() { return base_url + "users";}
@@ -63,6 +66,7 @@ public class UpdateUser {
 
         }else{ //? INPUT EMAIL EXIST
             JSONObject requestBody = new JSONObject();
+            this.randomPhoneNumber = general.randomPhoneNumbers(input);
 //           * Catch Email
             this.email = FileUtils.readFileToString(new File(System.getProperty("user.dir") +
                     "/src/test/resources/filejson/email.json"), StandardCharsets.UTF_8);
@@ -70,7 +74,7 @@ public class UpdateUser {
 
             requestBody.put("name", "Name has change");
             requestBody.put("email", "user102@gmail.com");
-            requestBody.put("phone", "087778855522");
+            requestBody.put("phone", this.randomPhoneNumber);
 
 //           * Catch Token
             this.token = FileUtils.readFileToString(new File(System.getProperty("user.dir") +
@@ -92,7 +96,7 @@ public class UpdateUser {
             restAssuredThat(response -> response.body("message", Matchers.equalTo("Full authentication is required to access this resource")));
             restAssuredThat(response -> response.body("'status'", Matchers.equalTo(401)));
         }else {
-            restAssuredThat(response -> response.body("message", Matchers.equalTo("user with email user102@gmail.com exist")));
+            restAssuredThat(response -> response.body("message", Matchers.equalTo("User with email user102@gmail.com exist")));
             restAssuredThat(response -> response.body("'code'", Matchers.equalTo("400")));
         }
     }

@@ -1,4 +1,4 @@
-package starter.loginAdmin;
+package starter.authentication;
 
 
 import Utils.General;
@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 public class LoginAdmin {
-    String base_url = "http://44.201.153.46:8081/api-dev/v1/auth/login/";
+    String base_url = "http://44.201.153.46:8081/api/v1/auth/login/";
 
     @Steps
     General general;

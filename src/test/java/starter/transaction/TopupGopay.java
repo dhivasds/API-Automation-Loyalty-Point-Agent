@@ -16,7 +16,7 @@ import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 
 public class TopupGopay {
 
-    String base_url = "http://44.201.153.46:8081/api-dev/v1/topup/transactions/";
+    String base_url = "http://44.201.153.46:8081/api/v1/transactions/topup/";
     String token;
 
     @Step("I set an endpoint for add Top up Gopay")
@@ -26,9 +26,7 @@ public class TopupGopay {
     public void setRequestPOSTAddTopUpGopay(String input) throws IOException {
         if (input.equals("validToken")) {
             JSONObject requestBody = new JSONObject();
-            requestBody.put("product_type", "topup");
-            requestBody.put("product_id", 3);
-            requestBody.put("gross_amount", 101000);
+            requestBody.put("product_id", 51);
             requestBody.put("transfer_method", "gopay");
 
 //           * Catch Token
@@ -43,9 +41,7 @@ public class TopupGopay {
         } else {
             if (input.equals("invalidToken")) {
                 JSONObject requestBody = new JSONObject();
-                requestBody.put("product_type", "topup");
-                requestBody.put("product_id", 3);
-                requestBody.put("gross_amount", 101000);
+                requestBody.put("product_id", 51);
                 requestBody.put("transfer_method", "gopay");
 
                 SerenityRest.given().header("Content-Type", "application/json")

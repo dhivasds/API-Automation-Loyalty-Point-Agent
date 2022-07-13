@@ -15,7 +15,7 @@ import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 
 public class DeleteProvider {
 
-    String base_url = "http://44.201.153.46:8081/api-dev/v1/products/provider/";
+    String base_url = "http://44.201.153.46:8081/api/v1/products/provider/";
     String token, IdProvider;
 
     @Step("I set an endpoint for delete provider")
@@ -52,7 +52,7 @@ public class DeleteProvider {
     @Step("validate the data detail {string} after delete provider")
     public void setValidateTheDataDetailAfterDeleteProvider(String message) {
         if (message.equals("DeleteProvider")){
-            restAssuredThat(response -> response.body("message", Matchers.equalTo("Delete quota product success")));
+            restAssuredThat(response -> response.body("message", Matchers.equalTo("Delete provider success")));
             restAssuredThat(response -> response.body("code", Matchers.equalTo("201")));
         }else {
             restAssuredThat(response -> response.body("message", Matchers.equalTo("Full authentication is required to access this resource")));

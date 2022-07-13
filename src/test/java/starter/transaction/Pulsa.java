@@ -17,7 +17,7 @@ import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 
 public class Pulsa {
 
-    String base_url = "http://44.201.153.46:8081/api-dev/v1/transactions/";
+    String base_url = "http://44.201.153.46:8081/api/v1/transactions/";
     String token;
 
     @Step("I set an endpoint for buy pulsa")
@@ -89,7 +89,7 @@ public class Pulsa {
             restAssuredThat(response -> response.body("code", Matchers.equalTo("400")));
 
         }else if (message.equals("ProductEmpty")){
-            restAssuredThat(response -> response.body("message", Matchers.equalTo("Product is empty")));
+            restAssuredThat(response -> response.body("message", Matchers.equalTo("product pulsa not found")));
             restAssuredThat(response -> response.body("code", Matchers.equalTo("400")));
 
         }else {

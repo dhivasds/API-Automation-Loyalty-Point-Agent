@@ -1,4 +1,4 @@
-package starter.loginUser;
+package starter.authentication;
 
 import Utils.General;
 import io.restassured.response.Response;
@@ -17,7 +17,7 @@ import java.nio.charset.StandardCharsets;
 import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 
 public class LoginUser {
-    String base_url = "http://44.201.153.46:8081/api-dev/v1/auth/";
+    String base_url = "http://44.201.153.46:8081/api/v1/auth/";
     String email,password,token;
 
     @Steps
@@ -139,10 +139,10 @@ public class LoginUser {
             restAssuredThat(response -> response.body("code", Matchers.equalTo("200")));
 
         }else if (message.equals("EmailOrPasswordIncorrect")){
-            restAssuredThat(response -> response.body("message", Matchers.equalTo("email or password incorrect")));
+            restAssuredThat(response -> response.body("message", Matchers.equalTo("Email or password incorrect")));
 
-        } else if (message.equals("PasswordInvalid")){ //! BUG | Validate belum sesuai
-//            restAssuredThat(response -> response.body("message", Matchers.equalTo("email or password incorrect")));
+        } else if (message.equals("PasswordInvalid")){
+            restAssuredThat(response -> response.body("errors[0]", Matchers.equalTo("The length of password must be at least 8 characters.")));
 
         } else if (message.equals("EmailInvalid")) {
             restAssuredThat(response -> response.body("errors[0]", Matchers.equalTo("The email address is invalid.")));

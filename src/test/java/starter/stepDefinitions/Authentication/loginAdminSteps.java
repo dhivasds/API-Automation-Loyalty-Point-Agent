@@ -3,7 +3,7 @@ package starter.stepDefinitions.Authentication;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
-import starter.loginAdmin.LoginAdmin;
+import starter.authentication.LoginAdmin;
 
 import java.io.IOException;
 

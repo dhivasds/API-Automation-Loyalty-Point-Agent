@@ -13,7 +13,7 @@ import java.nio.charset.StandardCharsets;
 import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 
 public class TopupBank {
-    String base_url = "http://44.201.153.46:8081/api-dev/v1/topup/transactions/";
+    String base_url = "http://44.201.153.46:8081/api/v1/transactions/topup/";
     String token;
 
     @Step("I set an endpoint for add Top up Bank Transfer")
@@ -23,10 +23,8 @@ public class TopupBank {
     public void setRequestPOSTAddTopUpBankTransfer(String input) throws IOException {
         if (input.equals("validToken")) {
             JSONObject requestBody = new JSONObject();
-            requestBody.put("product_type", "topup");
-            requestBody.put("product_id", 1);
-            requestBody.put("gross_amount", 101000);
-            requestBody.put("transfer_method", "bca");
+            requestBody.put("product_id", 51);
+            requestBody.put("transfer_method", "bni");
 
 //           * Catch Token
             this.token = FileUtils.readFileToString(new File(System.getProperty("user.dir") +
@@ -40,10 +38,8 @@ public class TopupBank {
         } else {
             if (input.equals("invalidToken")) {
                 JSONObject requestBody = new JSONObject();
-                requestBody.put("product_type", "topup");
-                requestBody.put("product_id", 1);
-                requestBody.put("gross_amount", 101000);
-                requestBody.put("transfer_method", "bca");
+                requestBody.put("product_id", 51);
+                requestBody.put("transfer_method", "bni");
 
                 SerenityRest.given().header("Content-Type", "application/json")
                         .header("Authorization", "Bearer " + "invalidToken")

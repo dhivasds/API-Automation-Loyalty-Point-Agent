@@ -15,7 +15,7 @@ import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 
 public class TransactionHistory {
 
-    String base_url = "http://44.201.153.46:8081/api-dev/v1/";
+    String base_url = "http://44.201.153.46:8081/api/v1/";
     String token;
 
     @Step("I set an endpoint for detail transaction history")
@@ -46,7 +46,7 @@ public class TransactionHistory {
     public void setValidateTheDataDetailAfterGetDetailTransactionHistory(String message) {
         if (message.equals("DetailTransaction")){
             restAssuredThat(response -> response.body("message", Matchers.equalTo("Get transaction history success")));
-            restAssuredThat(response -> response.body("code", Matchers.equalTo("201")));
+            restAssuredThat(response -> response.body("code", Matchers.equalTo("200")));
         }else {
             restAssuredThat(response -> response.body("message", Matchers.equalTo("Full authentication is required to access this resource")));
             restAssuredThat(response -> response.body("'status'", Matchers.equalTo(401)));
